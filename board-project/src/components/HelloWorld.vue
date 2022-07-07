@@ -1,35 +1,125 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+  <div id="wrap">
+      <!-- @ CONTAINER -->
+      <section id="container" class="sub  new">
+          <!-- @ CONTENTS -->
+          <div id="contents">
+              <!-- @ SUB TITLE AREA -->
+              <div class="sub-title-area">
+                  <h2 class="tit">News & Info </h2>
+              </div>
+        <div class="btn_area">
+            <a href="write.html" class="btn_blue_line">글쓰기</a>
+                </div>
+        <!-- 페이징 처리는 5개씩 해주세요-->
+              <table class="news_list">
+              <caption>News 리스트</caption>
+              <colgroup>
+                  <col style="width: 10%">
+                  <col style="width:*">
+                  <col style="width: 10%">
+                  <col style="width: 10%">
+                  <col style="width: 5%">
+                  <col style="width: 8%">
+              </colgroup>
+            <thead>
+              <tr>
+                  <th scope="col">번호</th>
+                  <th scope="col">제목</th>
+                  <th scope="col">작성자</th>
+                  <th scope="col">등록일</th>
+                  <th scope="col">조회</th>
+                  <th scope="col">첨부</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td>10</td>
+                  <td class="board_txt">
+                      <p>
+                          <a href="#" class="ellip"> [필독]사이트 리뉴얼 오픈 및 서비스 일시 중지 안내 </a>
+                      </p>
+                  </td>
+                  <td class="board_man">관리자</td>
+                  <td class="board_date">2016-02-25</td>
+                  <td class="board_read">989</td>
+                  <td class="board_file"><span class="file_icon">파일다운로드</span></td>
+              </tr>
+              <tr>
+                  <td>9</td>
+                  <td class="board_txt">
+                      <p>
+                          <a href="view.html" class="ellip">사이트 개편에 따른 이용약관 및 개인정보 취급방침 변경 안내</a>
+                      </p>
+                  </td>
+                  <td class="board_man">관리자</td>
+                  <td class="board_date">2016-02-25</td>
+                  <td class="board_read">989</td>
+                  <td class="board_file"><span class="file_icon">파일다운로드</span></td>
+              </tr>
+            </tbody>
+        <tr>
+                  <td>8</td>
+                  <td class="board_txt">
+                      <p>
+                          <a href="view.html" class="ellip">사이트 개편에 따른 이용약관 및 개인정보 취급방침 변경 안내</a>
+                      </p>
+                  </td>
+                  <td class="board_man">관리자</td>
+                  <td class="board_date">2016-02-25</td>
+                  <td class="board_read">989</td>
+                  <td class="board_file"><span class="file_icon">파일다운로드</span></td>
+              </tr>
+        <tr>
+                  <td>7</td>
+                  <td class="board_txt">
+                      <p>
+                          <a href="#" class="ellip">사이트 개편에 따른 이용약관 및 개인정보 취급방침 변경 안내</a>
+                      </p>
+                  </td>
+                  <td class="board_man">관리자</td>
+                  <td class="board_date">2016-02-25</td>
+                  <td class="board_read">989</td>
+                  <td class="board_file"><span class="file_icon">파일다운로드</span></td>
+              </tr>
+        <tr>
+                  <td>6</td>
+                  <td class="board_txt">
+                      <p>
+                          <a href="#" class="ellip">사이트 개편에 따른 이용약관 및 개인정보 취급방침 변경 안내</a>
+                      </p>
+                  </td>
+                  <td class="board_man">관리자</td>
+                  <td class="board_date">2016-02-25</td>
+                  <td class="board_read">989</td>
+                  <td class="board_file"><span class="file_icon">파일다운로드</span></td>
+              </tr>
+              </table>
+              <div class="pagination">
+                  <a class="prev end">첫 페이지</a>
+                  <a class="prev">이전 페이지</a>
+                  <a href="#" class="on">1</a>
+                  <a href="#">2</a>
+                  <a href="#">3</a>
+                  <a href="#">4</a>
+                  <a href="#">99</a>
+                  <a href="#" class="next">다음 페이지</a>
+                  <a href="#" class="next end">마지막 페이지</a>
+              </div>
+              <div class="find_wrap">
+                  <select name="" id="">
+                      <option value="">제목</option>
+                      <option value="">내용</option>
+                  </select>
+                  <input type="text" name="" id=""  title="검색어 입력" placeholder="검색어 입력">
+                  <a href="#" class="btn_gray">검색</a>
+              </div>
+          </div>
+          <!-- CONTENTS @ -->
+      </section>
+      <!-- CONTAINER @ -->
   </div>
 </template>
-
 <script>
 export default {
   name: 'HelloWorld',
@@ -38,21 +128,7 @@ export default {
   }
 }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>
