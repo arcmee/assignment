@@ -5,7 +5,8 @@
         <Title></Title>
         <!-- <board></board> -->
         <!-- <Writer></Writer> -->
-        <board-view></board-view>
+        <!-- <board-view></board-view> -->
+        <router-view></router-view>
       </div>
     </section>
   </div>
