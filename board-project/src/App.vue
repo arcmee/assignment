@@ -4,7 +4,8 @@
       <div id="contents">
         <Title></Title>
         <!-- <board></board> -->
-        <Writer></Writer>
+        <!-- <Writer></Writer> -->
+        <board-view></board-view>
       </div>
     </section>
   </div>
@@ -13,14 +14,16 @@
 <script>
 import Title from './components/common/Title.vue'
 // import Board from './components/Board/Board.vue'
-import Writer from './components/Writer/Writer.vue'
+// import Writer from './components/Writer/Writer.vue'
+import BoardView from './components/BoardView/BoardView.vue'
 
 export default {
   name: 'App',
   components: {
     // Board,
     Title,
-    Writer,
+    // Writer,
+    BoardView,
   }
 }
 </script>
