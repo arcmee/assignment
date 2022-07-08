@@ -3,16 +3,16 @@
       <!-- @ CONTAINER -->
       <section id="container" class="sub  new">
           <!-- @ CONTENTS -->
-          <div id="contents">
+        <div id="contents">
               <!-- @ SUB TITLE AREA -->
-              <div class="sub-title-area">
-                  <h2 class="tit">News & Info </h2>
-              </div>
+        <div class="sub-title-area">
+            <h2 class="tit">News & Info </h2>
+        </div>
         <div class="btn_area">
-            <a href="write.html" class="btn_blue_line">글쓰기</a>
-                </div>
+          <a href="write.html" class="btn_blue_line">글쓰기</a>
+        </div>
         <!-- 페이징 처리는 5개씩 해주세요-->
-              <table class="news_list">
+          <table class="news_list">
               <caption>News 리스트</caption>
               <colgroup>
                   <col style="width: 10%">
@@ -130,5 +130,4 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>

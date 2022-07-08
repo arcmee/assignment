@@ -20,74 +20,24 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>10</td>
-        <td class="board_txt">
-          <p>
-              <a href="#" class="ellip"> [필독]사이트 리뉴얼 오픈 및 서비스 일시 중지 안내 </a>
-          </p>
-        </td>
-        <td class="board_man">관리자</td>
-        <td class="board_date">2016-02-25</td>
-        <td class="board_read">989</td>
-        <td class="board_file"><span class="file_icon">파일다운로드</span></td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td class="board_txt">
-            <p>
-                <a href="view.html" class="ellip">사이트 개편에 따른 이용약관 및 개인정보 취급방침 변경 안내</a>
-            </p>
-        </td>
-        <td class="board_man">관리자</td>
-        <td class="board_date">2016-02-25</td>
-        <td class="board_read">989</td>
-        <td class="board_file"><span class="file_icon">파일다운로드</span></td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td class="board_txt">
-            <p>
-                <a href="view.html" class="ellip">사이트 개편에 따른 이용약관 및 개인정보 취급방침 변경 안내</a>
-            </p>
-        </td>
-        <td class="board_man">관리자</td>
-        <td class="board_date">2016-02-25</td>
-        <td class="board_read">989</td>
-        <td class="board_file"><span class="file_icon">파일다운로드</span></td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td class="board_txt">
-            <p>
-                <a href="#" class="ellip">사이트 개편에 따른 이용약관 및 개인정보 취급방침 변경 안내</a>
-            </p>
-        </td>
-        <td class="board_man">관리자</td>
-        <td class="board_date">2016-02-25</td>
-        <td class="board_read">989</td>
-        <td class="board_file"><span class="file_icon">파일다운로드</span></td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td class="board_txt">
-            <p>
-                <a href="#" class="ellip">사이트 개편에 따른 이용약관 및 개인정보 취급방침 변경 안내</a>
-            </p>
-        </td>
-        <td class="board_man">관리자</td>
-        <td class="board_date">2016-02-25</td>
-        <td class="board_read">989</td>
-        <td class="board_file"><span class="file_icon">파일다운로드</span></td>
-      </tr>
+      <board-table-row 
+        v-for="item in rows" 
+        :key="item.id"
+        v-bind="item">
+      </board-table-row>
     </tbody>
   </table>
 </template>
 <script>
+import BoardTableRow from './BoardTableRow.vue'
+
 export default {
   name: 'BoardTable',
+  components : {
+    BoardTableRow,
+  },
   props: {
-    msg: String
+    rows : Array
   }
 }
 </script>

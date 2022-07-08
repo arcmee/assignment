@@ -3,7 +3,8 @@ import { createWebHistory, createRouter } from 'vue-router';
 const routes = [
   {
     path: '/',
-    name: 'Board',
+    name: 'boards',
+    alias:'/boards',
     component: () => import('@/components/Board/Board.vue'), // 동적 import
   },
   {

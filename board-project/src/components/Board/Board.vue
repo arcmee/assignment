@@ -1,14 +1,17 @@
 <template>
     <board-title></board-title>
-    <board-table></board-table>
+    <board-table :rows="tableRows"></board-table>
     <board-pagination></board-pagination>
     <board-search></board-search>
 </template>
 <script>
+import { provide } from 'vue';
+
 import BoardTitle from "./BoardTitle.vue"
 import BoardTable from "./BoardTable.vue"
 import BoardPagination from "./BoardPagination.vue"
 import BoardSearch from "./BoardSearch.vue"
+import BoardRepository from '@/core/Board/GetBoardList'
 
 export default {
     name: 'Board',
@@ -18,9 +21,14 @@ export default {
         BoardPagination,
         BoardSearch
     },
-    props: {
-        msg: String
-    }
+    setup: () => {
+        const boardRepository = new BoardRepository();
+        console.log(boardRepository.getBoardList());
+        provide('tableRows', boardRepository.getBoardList());
+        return {
+            tableRows : boardRepository.getBoardList(),
+        };
+    },
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->

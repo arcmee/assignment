@@ -1,4 +1,4 @@
-const ListDummy = [
+export default ListDummy = [
     {
         id : 1,
         title : "Et deserunt officiis.",
@@ -77,17 +77,3 @@ const ListDummy = [
         views : 5,
     },    
 ]
-
-export default class BoardRepository{
-    constructor(){
-
-    }
-    getBoardList = () => {
-        return ListDummy;
-    }
-}
-
-export const getBoardList = () => {
-    return ListDummy;
-}
-

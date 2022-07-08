@@ -1,8 +1,9 @@
 <template>
-
-    <div class="btn_area">
-        <a href="write.html" class="btn_blue_line">글쓰기</a>
-    </div>
+    <router-link to="/BoardWriter">
+        <div class="btn_area">
+            <a href="write.html" class="btn_blue_line">글쓰기</a>
+        </div>
+    </router-link>
 </template>
 <script>
 export default {
