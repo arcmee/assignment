@@ -1,3 +1,5 @@
+import http from "../../http-common";
+
 const ListDummy = [
     {
         id : 1,
@@ -78,12 +80,19 @@ const ListDummy = [
     },    
 ]
 
+
 export default class BoardRepository{
     constructor(){
 
     }
-    getBoardList = () => {
-        return ListDummy;
+    getBoardList = async () => {
+        const res = await http.get("/tutorials");
+        const result = {
+            status: res.status + "-" + res.statusText,
+            headers: res.headers,
+            data: res.data,
+        };
+        return result.data;
     }
 }
 

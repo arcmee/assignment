@@ -1,5 +1,5 @@
 <template>
-  <table class="news_list">
+  <table class="news_list" >
     <caption>News 리스트</caption>
     <colgroup>
         <col style="width: 10%">
@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <board-table-row 
+      <board-table-row
         v-for="item in rows" 
         :key="item.id"
         v-bind="item">
@@ -38,6 +38,9 @@ export default {
   },
   props: {
     rows : Array
+  },
+  setup : async () => {
+
   }
 }
 </script>

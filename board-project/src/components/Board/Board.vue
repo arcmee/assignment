@@ -5,7 +5,7 @@
     <board-search></board-search>
 </template>
 <script>
-import { provide } from 'vue';
+// import { provide } from 'vue';
 
 import BoardTitle from "./BoardTitle.vue"
 import BoardTable from "./BoardTable.vue"
@@ -21,12 +21,14 @@ export default {
         BoardPagination,
         BoardSearch
     },
-    setup: () => {
+    async setup() {
         const boardRepository = new BoardRepository();
-        console.log(boardRepository.getBoardList());
-        provide('tableRows', boardRepository.getBoardList());
+        const res = await boardRepository.getBoardList();
+
+        console.log(res);
+        // provide('getResult', true);
         return {
-            tableRows : boardRepository.getBoardList(),
+            tableRows : res,
         };
     },
 }

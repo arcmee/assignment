@@ -3,10 +3,12 @@
     <section id="container" class="sub new">
       <div id="contents">
         <Title></Title>
-        <!-- <board></board> -->
-        <!-- <Writer></Writer> -->
-        <!-- <board-view></board-view> -->
+        <Suspense>
         <router-view></router-view>
+        <template #fallback>
+            Loading...
+        </template>
+        </Suspense>
       </div>
     </section>
   </div>
@@ -16,7 +18,7 @@
 import Title from './components/common/Title.vue'
 // import Board from './components/Board/Board.vue'
 // import Writer from './components/Writer/Writer.vue'
-import BoardView from './components/BoardView/BoardView.vue'
+// import BoardView from './components/BoardView/BoardView.vue'
 
 export default {
   name: 'App',
@@ -24,7 +26,7 @@ export default {
     // Board,
     Title,
     // Writer,
-    BoardView,
+    // BoardView,
   }
 }
 </script>
