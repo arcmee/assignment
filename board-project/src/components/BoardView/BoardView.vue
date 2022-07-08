@@ -25,7 +25,6 @@ export default {
     const route = useRoute();
     const boardViewRepository = new BoardViewRepository();
     const res = await boardViewRepository.getBoardView(route.params.id);
-    console.log(res);
     return {
         viewData : res,
     };

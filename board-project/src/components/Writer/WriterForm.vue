@@ -62,7 +62,6 @@ export default {
         description : this.viewData.description,
         registerDate : new Date().toISOString().split('T')[0],
       }
-      console.log(saveData);
       const boardCreator = new BoardCreator();
       await boardCreator.create(saveData).then( async (res) => {
           if(res.status == 201){
@@ -79,7 +78,6 @@ export default {
         registerDate : new Date().toISOString().split('T')[0],
       }
       const boardEditor = new BoardEditor();
-      console.log(this.id);
       await boardEditor.boardEditById(this.id, editData).then( async (res) => {
           if(res.status == 200){
             await router.push({ path: "/Boards"})
@@ -101,7 +99,6 @@ export default {
     if(route.params.id)  {
       const boardViewRepository = new BoardViewRepository();
       const res = await boardViewRepository.getBoardView(route.params.id);
-      console.log(res);
       viewData.value.title = res.title;
       viewData.value.author = res.author;
       viewData.value.description = res.description;

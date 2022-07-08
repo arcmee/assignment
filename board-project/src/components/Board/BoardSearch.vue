@@ -21,7 +21,6 @@ export default {
   },
   methods : {
     boardSearch : function() {
-        console.log('hi');
         this.$emit('boardSearch', this.searchText );
     }
   }

@@ -14,9 +14,7 @@ export default class BoardViewRepository {
         return result.data;
     }
     deleteBoard = async (id) => {
-        console.log(id);
         const res = await http.delete(`/tutorials/${id}`);
-        console.log(res);
         return res;
     }
 }
