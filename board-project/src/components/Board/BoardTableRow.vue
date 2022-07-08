@@ -3,7 +3,7 @@
         <td>{{id}}</td>
         <td class="board_txt">
             <p>
-                <a href="#" class="ellip"> {{title}} </a>
+                <a @click="toView" class="ellip"> {{title}} </a>
             </p>
         </td>
         <td class="board_man">{{author}}</td>
@@ -13,6 +13,8 @@
     </tr>
 </template>
 <script>
+import { router } from '../../router'
+
 export default {
     name: 'BoardTableRow',
     components: {
@@ -24,9 +26,12 @@ export default {
         registerDate : String,
         views : Number,
     },
-    setup : (props) => {
-        console.log(props);
-    }
+    methods : {
+        toView : function() {
+            router.push({ path: `/BoardView/${this.id}`});
+        }
+    },
+    
 }
 </script>
 <style scoped>

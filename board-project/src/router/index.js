@@ -8,13 +8,18 @@ const routes = [
     component: () => import('@/components/Board/Board.vue'), // 동적 import
   },
   {
-    path: '/BoardView',
+    path: '/BoardView/:id',
     name: 'BoardView',
     component: () => import('@/components/BoardView/BoardView.vue'), // 동적 import
   },
   {
     path: '/BoardWriter',
     name: 'BoardWriter',
+    component: () => import('@/components/Writer/Writer.vue'), // 동적 import
+  },
+  {
+    path: '/editBoard/:id',
+    name: 'editBoard',
     component: () => import('@/components/Writer/Writer.vue'), // 동적 import
   },
 ];

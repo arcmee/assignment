@@ -1,8 +1,8 @@
 <template>
     <board-title></board-title>
-    <board-table :rows="tableRows"></board-table>
+    <board-table :rows="result.fetched"></board-table>
     <board-pagination></board-pagination>
-    <board-search></board-search>
+    <board-search @board-search="searchByTitle"></board-search>
 </template>
 <script>
 // import { provide } from 'vue';
@@ -12,6 +12,7 @@ import BoardTable from "./BoardTable.vue"
 import BoardPagination from "./BoardPagination.vue"
 import BoardSearch from "./BoardSearch.vue"
 import BoardRepository from '@/core/Board/GetBoardList'
+import { ref } from 'vue'
 
 export default {
     name: 'Board',
@@ -21,14 +22,20 @@ export default {
         BoardPagination,
         BoardSearch
     },
+    methods : {
+        async searchByTitle(searchText) {
+            const boardRepository = new BoardRepository();
+            const res = await boardRepository.findByTitleContaining(searchText);
+            this.result.fetched = res;
+        }
+    },
     async setup() {
         const boardRepository = new BoardRepository();
-        const res = await boardRepository.getBoardList();
-
-        console.log(res);
-        // provide('getResult', true);
+        const result = ref({
+            fetched : await boardRepository.getBoardList()
+        });
         return {
-            tableRows : res,
+            result
         };
     },
 }
