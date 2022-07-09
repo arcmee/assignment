@@ -29,5 +29,19 @@ export default class BoardRepository{
         };
         return result;
     }
+    findByDescriptionContaining = async (description, page = 0) => {
+        const res = await http.get(`/tutorials?page=${page}&size=${this.size}`, {
+            params: {
+              description: description,
+            },
+        });
+        const result = {
+            status: res.status + "-" + res.statusText,
+            headers: res.headers,
+            data: res.data.content,
+            totalPages : res.data.totalPages,
+        };
+        return result;
+    }
 }
 

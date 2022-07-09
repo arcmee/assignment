@@ -1,8 +1,8 @@
 <template>
     <div class="find_wrap">
-        <select name="" id="">
-            <option value="">제목</option>
-            <option value="">내용</option>
+        <select v-model="selected">
+            <option value="title">제목</option>
+            <option value="description">내용</option>
         </select>
         <input type="text" name="" id=""  title="검색어 입력" placeholder="검색어 입력"
         v-model="searchText" >
@@ -16,12 +16,13 @@ export default {
   },
   data() {
     return {
-        searchText : ""
+        searchText : "",
+        selected : "title",
     }
   },
   methods : {
     boardSearch : function() {
-        this.$emit('boardSearch', this.searchText );
+        this.$emit('boardSearch', this.searchText, this.selected );
     }
   }
 }

@@ -20,11 +20,6 @@ export default {
         totalPages : Number,
         page : Number
     },
-    // data() {
-    //     return {
-    //         page : 0
-    //     }
-    // },
     methods : {
         pagination : function(e) {
             this.$emit('pagination',e.target.innerText - 1);

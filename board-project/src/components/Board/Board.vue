@@ -5,8 +5,6 @@
     <board-search @board-search="searchByTitle"></board-search>
 </template>
 <script>
-// import { provide } from 'vue';
-
 import BoardTitle from "./BoardTitle.vue"
 import BoardTable from "./BoardTable.vue"
 import BoardPagination from "./BoardPagination.vue"
@@ -20,6 +18,7 @@ export default {
         return {
             searchText : "",
             page : 0,
+            selected : "title",
         }
     },
     components: {
@@ -29,9 +28,17 @@ export default {
         BoardSearch
     },
     methods : {
-        async searchByTitle(searchText) {
+        async searchByTitle(searchText, selected) {
+            console.log(selected);
             const boardRepository = new BoardRepository();
-            const res = await boardRepository.findByTitleContaining(searchText, 0);
+            let res = {};
+            this.selected = selected;
+            if(selected === "title"){
+                res = await boardRepository.findByTitleContaining(searchText, 0);
+            }
+            else{
+                res = await boardRepository.findByDescriptionContaining(searchText, 0);
+            }
             this.searchText = searchText;
             this.page = 0;
             this.result.fetched = res;
@@ -45,7 +52,13 @@ export default {
                 this.page = this.result.fetched.totalPages - 1
             }            
             const boardRepository = new BoardRepository();
-            const res = await boardRepository.findByTitleContaining(this.searchText, this.page);            
+            let res = {};
+            if(this.selected === "title"){
+                res = await boardRepository.findByTitleContaining(this.searchText, this.page);            
+            }
+            else{
+                res = await boardRepository.findByDescriptionContaining(this.searchText, this.page);            
+            }
             this.result.fetched = res;
         }
     },
