@@ -1,7 +1,7 @@
 <template>
     <board-title></board-title>
-    <board-table :rows="result.fetched"></board-table>
-    <board-pagination></board-pagination>
+    <board-table :rows="result.fetched.data"></board-table>
+    <board-pagination :page="page" :total-pages="result.fetched.totalPages" @pagination="pagination"></board-pagination>
     <board-search @board-search="searchByTitle"></board-search>
 </template>
 <script>
@@ -16,6 +16,12 @@ import { ref } from 'vue'
 
 export default {
     name: 'Board',
+    data() {
+        return {
+            searchText : "",
+            page : 0,
+        }
+    },
     components: {
         BoardTitle,
         BoardTable,
@@ -25,14 +31,28 @@ export default {
     methods : {
         async searchByTitle(searchText) {
             const boardRepository = new BoardRepository();
-            const res = await boardRepository.findByTitleContaining(searchText);
+            const res = await boardRepository.findByTitleContaining(searchText, 0);
+            this.searchText = searchText;
+            this.page = 0;
+            this.result.fetched = res;
+        },
+        async pagination(page){
+            this.page = page;
+            if(this.page < 0){
+                this.page = 0;
+            }
+            if(this.page > this.result.fetched.totalPages - 1){
+                this.page = this.result.fetched.totalPages - 1
+            }            
+            const boardRepository = new BoardRepository();
+            const res = await boardRepository.findByTitleContaining(this.searchText, this.page);            
             this.result.fetched = res;
         }
     },
     async setup() {
         const boardRepository = new BoardRepository();
         const result = ref({
-            fetched : await boardRepository.getBoardList()
+            fetched : await boardRepository.getBoardList(),
         });
         return {
             result
